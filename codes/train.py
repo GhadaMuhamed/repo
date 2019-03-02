@@ -47,14 +47,13 @@ def main():
     if opt['use_tb_logger'] and 'debug' not in opt['name']:
         from tensorboardX import SummaryWriter
         tb_logger = SummaryWriter(log_dir='../tb_logger/' + opt['name'])
-%%pixie_debugger
     # random seed
     seed = opt['train']['manual_seed']
     if seed is None:
         seed = random.randint(1, 10000)
     logger.info('Random seed: {}'.format(seed))
     util.set_random_seed(seed)
-
+    %%pixie_debugger
     torch.backends.cudnn.benckmark = True
     # torch.backends.cudnn.deterministic = True
 
