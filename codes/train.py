@@ -80,8 +80,7 @@ def main():
     # create model
     ipdb.set_trace() # BREAKPOINT
     model = create_model(opt)
-    print("modo is hereeee")
-    print(model)
+   
     # resume training
     if resume_state:
         start_epoch = resume_state['epoch']
