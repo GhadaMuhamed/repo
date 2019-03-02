@@ -28,7 +28,7 @@
   }
 
   , "path": {
-    "root": "/content/BasicSR"
+    "root": "/content/repo"
     // , "resume_state": "../experiments/debug_001_RRDB_PSNR_x4_DIV2K/training_state/200.state"
     , "pretrain_model_G": null
   }

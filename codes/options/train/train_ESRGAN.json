@@ -28,7 +28,7 @@
   }
 
   , "path": {
-    "root": "/content/BasicSR"
+    "root": "/content/repo"
     // , "resume_state": "../experiments/debug_002_RRDB_ESRGAN_x4_DIV2K/training_state/16.state"
     , "pretrain_model_G": "/content/drive/ESRGAN_models/RRDB_PSNR_x4.pth"
   }
