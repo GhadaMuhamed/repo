@@ -7,7 +7,7 @@ import random
 import numpy as np
 from collections import OrderedDict
 import logging
-
+import pixiedust
 import torch
 
 import options.options as option
@@ -47,7 +47,7 @@ def main():
     if opt['use_tb_logger'] and 'debug' not in opt['name']:
         from tensorboardX import SummaryWriter
         tb_logger = SummaryWriter(log_dir='../tb_logger/' + opt['name'])
-
+    %%pixie_debugger
     # random seed
     seed = opt['train']['manual_seed']
     if seed is None:
