@@ -22,7 +22,7 @@ class LRHRDataset(data.Dataset):
         self.paths_HR = None
         self.LR_env = None  # environment for lmdb
         self.HR_env = None
-        self.paths_HR += glob("/content/drive/My Drive/Flickr2K" + '/*')
+        self.paths_HR  = glob("/content/drive/My Drive/Flickr2K" + '/*')
         self.paths_HR += glob("/content/drive/My Drive/images/sky" + '/*')
         self.paths_HR += glob("/content/drive/My Drive/images/mountain" + '/*')
         self.paths_HR += glob("/content/drive/My Drive/images/grass" + '/*')
