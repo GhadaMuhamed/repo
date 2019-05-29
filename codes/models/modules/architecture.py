@@ -4,7 +4,6 @@ import torch.nn as nn
 import torchvision
 from . import block as B
 from . import spectral_norm as SN
-import ipdb
 ####################
 # Generator
 ####################
@@ -87,7 +86,7 @@ class RRDBNet(nn.Module):
 class Discriminator_VGG_128(nn.Module):
     def __init__(self, in_nc, base_nf, norm_type='batch', act_type='leakyrelu', mode='CNA'):
         super(Discriminator_VGG_128, self).__init__()
-        ipdb.set_trace() # BREAKPOINT
+      
 
         # features
         # hxw, c
@@ -125,7 +124,7 @@ class Discriminator_VGG_128(nn.Module):
             nn.Linear(512 * 4 * 4, 100), nn.LeakyReLU(0.2, True), nn.Linear(100, 1))
 
     def forward(self, x):
-        ipdb.set_trace() # BREAKPOINT
+     
         x = self.features(x)
         x = x.view(x.size(0), -1)
         x = self.classifier(x)
