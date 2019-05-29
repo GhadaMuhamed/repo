@@ -9,8 +9,8 @@
     "train": {
       "name": "DIV2K"
       , "mode": "LRHR"
-      , "dataroot_HR": "/content/drive/DIV2K_train_HR"
-      , "dataroot_LR": "/content/drive/DIV2K_train_LR"
+      , "dataroot_HR": "/content/drive/My Drive/DIV2K_train_HR"
+      , "dataroot_LR": "/content/drive/My Drive/DIV2K_train_LR"
       , "subset_file": null
       , "use_shuffle": true
       , "n_workers": 8
@@ -22,15 +22,15 @@
     , "val": {
       "name": "val_set14_part"
       , "mode": "LRHR"
-      , "dataroot_HR": "/content/drive/DIV2K_train_HR"
-      , "dataroot_LR": "/content/drive/DIV2K_train_LR"
+      , "dataroot_HR": "/content/drive/My Drive/DIV2K_train_HR"
+      , "dataroot_LR": "/content/drive/My Drive/DIV2K_train_LR"
     }
   }
 
   , "path": {
     "root": "/content/repo"
     // , "resume_state": "../experiments/debug_002_RRDB_ESRGAN_x4_DIV2K/training_state/16.state"
-    , "pretrain_model_G": "/content/drive/ESRGAN_models/RRDB_PSNR_x4.pth"
+    , "pretrain_model_G": "/content/drive/My Drive/ESRGAN_models/RRDB_PSNR_x4.pth"
   }
 
   , "network_G": {
