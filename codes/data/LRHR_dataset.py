@@ -5,6 +5,7 @@ import cv2
 import torch
 import torch.utils.data as data
 import data.util as util
+from glob import glob
 
 
 class LRHRDataset(data.Dataset):
@@ -21,23 +22,17 @@ class LRHRDataset(data.Dataset):
         self.paths_HR = None
         self.LR_env = None  # environment for lmdb
         self.HR_env = None
-
-        # read image list from subset list txt
-        if opt['subset_file'] is not None and opt['phase'] == 'train':
-            with open(opt['subset_file']) as f:
-                self.paths_HR = sorted([os.path.join(opt['dataroot_HR'], line.rstrip('\n')) \
-                        for line in f])
-            if opt['dataroot_LR'] is not None:
-                raise NotImplementedError('Now subset only supports generating LR on-the-fly.')
-        else:  # read image list from lmdb or image files
-            self.HR_env, self.paths_HR = util.get_image_paths(opt['data_type'], opt['dataroot_HR'])
-            self.LR_env, self.paths_LR = util.get_image_paths(opt['data_type'], opt['dataroot_LR'])
-
-        assert self.paths_HR, 'Error: HR path is empty.'
-        if self.paths_LR and self.paths_HR:
-            assert len(self.paths_LR) == len(self.paths_HR), \
-                'HR and LR datasets have different number of images - {}, {}.'.format(\
-                len(self.paths_LR), len(self.paths_HR))
+        self.paths_HR += glob("/content/drive/My Drive/Flickr2K" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images/sky" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images/mountain" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images/grass" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images/water" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images/plant" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images/building" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images/OutdoorSceneTest300" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images/animal" + '/*')
+        self.paths_HR += glob("/content/drive/My Drive/images" + '/*.jpg')
+        self.paths_HR += glob('/content/drive/My Drive/DIV2K_train_HR/' + '/*')
 
         self.random_scale_list = [1]
 
