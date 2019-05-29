@@ -7,7 +7,6 @@ import random
 import numpy as np
 from collections import OrderedDict
 import logging
-import ipdb
 import torch
 
 import options.options as option
@@ -53,6 +52,7 @@ def main():
         seed = random.randint(1, 10000)
     logger.info('Random seed: {}'.format(seed))
     util.set_random_seed(seed)
+    
     torch.backends.cudnn.benckmark = True
     # torch.backends.cudnn.deterministic = True
 
@@ -78,7 +78,6 @@ def main():
     assert train_loader is not None
 
     # create model
-    ipdb.set_trace() # BREAKPOINT
     model = create_model(opt)
    
     # resume training
