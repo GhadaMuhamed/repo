@@ -101,9 +101,11 @@ def define_G(opt):
         raise NotImplementedError('Generator model [{:s}] not recognized'.format(which_model))
 
     if opt['is_train']:
+        print("ghada na fy awl wahda aho")
         init_weights(netG, init_type='kaiming', scale=0.1)
     if gpu_ids:
         assert torch.cuda.is_available()
+        print("ghada na fy tany wahda aho")
         netG = nn.DataParallel(netG)
     return netG
 
