@@ -16,13 +16,14 @@ class LRHRDataset(data.Dataset):
     '''
 
     def __init__(self, opt):
-        super(LRHRDataset, self, flag).__init__()
+        super(LRHRDataset, self).__init__()
         self.opt = opt
         self.paths_LR = None
         self.paths_HR = None
         self.LR_env = None  # environment for lmdb
         self.HR_env = None
-        if flag:
+        phase = opt['phase']
+        if phase == 'train':
             self.paths_HR  = glob("/content/drive/My Drive/Flickr2K" + '/*')
             self.paths_HR += glob("/content/drive/My Drive/images/sky" + '/*')
             self.paths_HR += glob("/content/drive/My Drive/images/mountain" + '/*')
