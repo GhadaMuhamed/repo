@@ -16,23 +16,27 @@ class LRHRDataset(data.Dataset):
     '''
 
     def __init__(self, opt):
-        super(LRHRDataset, self).__init__()
+        super(LRHRDataset, self, flag).__init__()
         self.opt = opt
         self.paths_LR = None
         self.paths_HR = None
         self.LR_env = None  # environment for lmdb
         self.HR_env = None
-        self.paths_HR  = glob("/content/drive/My Drive/Flickr2K" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images/sky" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images/mountain" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images/grass" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images/water" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images/plant" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images/building" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images/OutdoorSceneTest300" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images/animal" + '/*')
-        self.paths_HR += glob("/content/drive/My Drive/images" + '/*.jpg')
-        self.paths_HR += glob('/content/drive/My Drive/DIV2K_train_HR/' + '/*')
+        if flag:
+            self.paths_HR  = glob("/content/drive/My Drive/Flickr2K" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images/sky" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images/mountain" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images/grass" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images/water" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images/plant" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images/building" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images/OutdoorSceneTest300" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images/animal" + '/*')
+            self.paths_HR += glob("/content/drive/My Drive/images" + '/*.jpg')
+            self.paths_HR += glob('/content/drive/My Drive/DIV2K_train_HR/' + '/*')
+        else:
+             self.paths_HR  = glob("/content/drive/My Drive/BSDS100" + '/*')
+         
 
         self.random_scale_list = [1]
 
