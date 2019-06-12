@@ -25,7 +25,7 @@ class LRHRDataset(data.Dataset):
         phase = opt['phase']
         print(phase)
         if phase == 'train':
-            self.paths_HR  = glob("/content/drive/My Drive/Flickr2K" + '/*')
+            self.paths_HR  = glob("/content/drive/My Drive/Flickr2K" + '/*') 
             self.paths_HR += glob("/content/drive/My Drive/images/sky" + '/*')
             self.paths_HR += glob("/content/drive/My Drive/images/mountain" + '/*')
             self.paths_HR += glob("/content/drive/My Drive/images/grass" + '/*')
@@ -35,7 +35,8 @@ class LRHRDataset(data.Dataset):
             self.paths_HR += glob("/content/drive/My Drive/images/OutdoorSceneTest300" + '/*')
             self.paths_HR += glob("/content/drive/My Drive/images/animal" + '/*')
             self.paths_HR += glob("/content/drive/My Drive/images" + '/*.jpg')
-            self.paths_HR += glob('/content/drive/My Drive/DIV2K_train_HR/' + '/*')
+            self.paths_HR += glob('/content/drive/My Drive/DIV2K_train_HR' + '/*')
+            print(self.paths_HR)
         else:
              self.paths_HR  = glob("/content/drive/My Drive/BSDS100" + '/*')
         print(len(self.paths_HR))
