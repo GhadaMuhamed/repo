@@ -23,6 +23,7 @@ class LRHRDataset(data.Dataset):
         self.LR_env = None  # environment for lmdb
         self.HR_env = None
         phase = opt['phase']
+        print(phase)
         if phase == 'train':
             self.paths_HR  = glob("/content/drive/My Drive/Flickr2K" + '/*')
             self.paths_HR += glob("/content/drive/My Drive/images/sky" + '/*')
@@ -37,7 +38,7 @@ class LRHRDataset(data.Dataset):
             self.paths_HR += glob('/content/drive/My Drive/DIV2K_train_HR/' + '/*')
         else:
              self.paths_HR  = glob("/content/drive/My Drive/BSDS100" + '/*')
-         
+        print(len(self.paths_HR))
 
         self.random_scale_list = [1]
 
